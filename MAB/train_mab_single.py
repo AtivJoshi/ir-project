@@ -384,7 +384,11 @@ def run(seed,args,now):
     args.seed = seed
     # args.now = now
         
-    args.device = select_gpu(10) # random free gpu with 20 gb memory
+    # args.device = select_gpu(10) # random free gpu with 20 gb memory
+    if torch.backends.mps.is_available():
+        args.device = "mps"
+    else:
+        args.device = "cpu"
 
     test_env, train_losses, train_rewards, train_action_probas, weight_changes, test_set_info, test_rewards, test_actions,test_delays = one_experiment(args)
     
@@ -429,7 +433,7 @@ def run(seed,args,now):
     plt.tight_layout()
         
     if args.debug:
-        plt.savefig(f"results1/{now}_{args.exp_name}_debug.png")
+        plt.savefig(f"results/{now}_{args.exp_name}_debug.png")
     else:
         plt.savefig(os.path.join(args.out_dir,now + "_" + args.exp_name, f'_train_mab{seed}.png'))
         

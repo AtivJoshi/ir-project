@@ -106,7 +106,7 @@ class Environment(object):
     method_delay_ce_label = F.softmax(torch.tensor(list(_method_delay.values()),dtype=torch.float ).reciprocal(),dim=0).detach().cpu().numpy()
     
 
-    def __init__(self, arms, dataset,preding=False):
+    def __init__(self, arms, dataset, args=None, preding=False):
         self.arms = arms
         self.dataset = dataset
         self.preding = preding # 是否在make final prediction
