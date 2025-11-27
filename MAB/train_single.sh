@@ -44,9 +44,9 @@ python3 classifier/postprocess/predict_complexity_on_classification_results.py \
 echo "predict complexity done"
 
 
-echo "MAB MO evaluate start"
-# 4. Removed hardcoded absolute paths
-python3 evaluate_final_acc.py \
-    --model_name MAB \
-    --base_pred_path MAB/results1/${now}_${exp_name}/
-echo "MAB MO evaluate done"
+# echo "MAB MO evaluate start"
+# # 4. Removed hardcoded absolute paths
+# python3 evaluate_final_acc.py \
+#     --model_name MAB \
+#     --base_pred_path MAB/results1/${now}_${exp_name}/
+# echo "MAB MO evaluate done"
