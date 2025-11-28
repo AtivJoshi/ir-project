@@ -13,7 +13,8 @@ class FeatureExtractor:
         """
         self.reader = pyserini_index_reader
         # Total number of documents in the collection (N) for IDF calculation
-        self.N = self.reader.stats()['documents']
+        # self.N = self.reader.stats()['documents']
+        self.N = self.reader.num_docs
 
     def get_idf(self, term):
         """

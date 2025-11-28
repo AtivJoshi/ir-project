@@ -4,21 +4,22 @@ import sys
 import os
 from tqdm import tqdm
 from pyserini.search.lucene import LuceneSearcher
-from pyserini.search.faiss import FaissSearcher, TctColBertQueryEncoder
+from pyserini.search.faiss import FaissSearcher
 import pytrec_eval
+from pyserini.encode import TctColBertQueryEncoder
 
 # Add parent directory to path so we can import MAB modules
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 try:
-    from MAB.feature_extractor import FeatureExtractor
+    from MABhybrid.feature_extractor import FeatureExtractor
 except ImportError:
     print("Error: Could not import MAB.feature_extractor. Ensure MAB/feature_extractor.py exists.")
     sys.exit(1)
 
 # --- Configuration ---
-OUTPUT_FILE = "../data/bandit_data_train.jsonl"
-QUERIES_FILE = "../data/msmarco-train-queries.tsv"
-QRELS_FILE = "../data/qrels.train.tsv"
+OUTPUT_FILE = "../MABhybrid/data/bandit_data_train.jsonl"
+QUERIES_FILE = "../MABhybrid/data/msmarco-train-queries.tsv"
+QRELS_FILE = "../MABhybrid/data/qrels.train.tsv"
 SAMPLE_SIZE = 50000  # Number of queries to process
 TOP_K = 1000         # Depth of initial retrieval
 ARMS = [0.0, 0.25, 0.5, 0.75, 1.0] # Alpha values: 0.0=Dense, 1.0=Sparse
@@ -88,6 +89,7 @@ def main():
         'msmarco-passage-tct_colbert-hnsw', 
         encoder
     )
+    print("Dense Searcher")
 
     # 2. Setup Feature Extractor
     # Reuse the sparse searcher's index reader for IDF stats
