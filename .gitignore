@@ -6,8 +6,7 @@ predictions/
 data/
 outputs/
 instantiated_configs/
-# official_evaluation/
-official_evaluation_/
+*official_evaluation/*
 case_study/
 cache/
 .history
@@ -16,4 +15,4 @@ __pycache__/
 elasticsearch-7.10.2/
 elasticsearch-7.10.2-linux-x86_64.tar.gz
 elasticsearch-7.10.2-linux-x86_64.tar.gz.sha512
-results*/
+results*
