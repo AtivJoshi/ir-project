@@ -3,7 +3,7 @@
 raw_data/
 processed_data/
 predictions/
-data/
+# data/
 outputs/
 instantiated_configs/
 *official_evaluation/*
