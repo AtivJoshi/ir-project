@@ -4,7 +4,7 @@ import os
 from tqdm import tqdm
 
 # Import the new classes
-from MAB.linucb import LinUCBAgent
+from linucb import LinUCBAgent
 # Assuming Environment is defined in MAB.utils per blueprint Part C
 from MAB.utils import Environment 
 
