@@ -16,3 +16,5 @@ elasticsearch-7.10.2/
 elasticsearch-7.10.2-linux-x86_64.tar.gz
 elasticsearch-7.10.2-linux-x86_64.tar.gz.sha512
 results*
+.conda
+.vscode*
