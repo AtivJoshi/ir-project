@@ -20,11 +20,11 @@ DATASET = "hotpotqa"
 OUTPUT_FILE = "../MABhybrid/data/bandit_data_train_hotpot.jsonl"
 
 # Retrieval & feature config
-MAX_DOCS = 20000  # subsample docs from HotpotQA corpus to keep things tractable
+MAX_DOCS = 50000  # subsample docs from HotpotQA corpus to keep things tractable
 DENSE_MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
 TOP_K = 100       # depth per retriever
 EVAL_K = 10       # nDCG@10
-SAMPLE_SIZE = 5000  # number of queries to sample
+SAMPLE_SIZE = 7000  # number of queries to sample
 ARMS = [0.0, 0.25, 0.5, 0.75, 1.0]  # alpha values: 0.0=dense-only, 1.0=sparse-only
 
 
